@@ -1,0 +1,28 @@
+.
+├── Dockerfile
+├── LICENSE
+├── README.md
+├── app
+│   ├── __init__.py
+│   ├── api
+│   │   ├── __init__.py
+│   │   └── api_v1
+│   │       ├── __init__.py
+│   │       ├── api.py
+│   │       └── endpoints
+│   │           ├── __init__.py
+│   │           └── endpoint.py
+│   ├── core
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   └── models
+│   └── main.py
+├── pyproject.toml
+├── requirements.txt
+├── scripts
+├── template.yml
+├── tests
+│   └── __init__.py
+└── tree.txt
+
+8 directories, 17 files

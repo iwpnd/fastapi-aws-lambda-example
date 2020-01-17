@@ -6,7 +6,7 @@ with open("requirements.txt", "r") as f:
 
 
 setup(
-    name="fastapi_aws_lambda_example_api",
+    name="example_app",
     version="0.1.0",
     description="example api to be deployed to aws lambda",
     url="http://github.com/iwpnd/fastapi-aws-lambda-example",

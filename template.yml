@@ -8,7 +8,7 @@ Resources:
         Properties:
             FunctionName: fastapi-lambda-example
             CodeUri: ./
-            Handler: app.main.handler
+            Handler: example_app.main.handler
             Runtime: python3.7
             Timeout: 300 # timeout of your lambda function
             MemorySize: 128 # memory size of your lambda function
