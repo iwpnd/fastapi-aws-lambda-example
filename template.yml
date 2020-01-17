@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+    fastAPI aws lambda example
+Resources:
+    FastapiExampleLambda:
+        Type: AWS::Serverless::Function
+        Properties:
+            FunctionName: fastapi-lambda-example
+            CodeUri: ./
+            Handler: app.main.handler
+            Runtime: python3.7
+            Timeout: 300 # timeout of your lambda function
+            MemorySize: 128 # memory size of your lambda function
+            Description: fastAPI aws lambda example
+            # other options, see ->
+            # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy-globals.html#sam-specification-template-anatomy-globals-supported-resources-and-properties
+            Role: !Sub arn:aws:iam::${AWS::AccountId}:role/fastapilambdarole
+            Events:
+                CatchAll:
+                    Type: Api
+                    Properties:
+                        Path: /{proxy+}
+                        Method: ANY
+Outputs:
+    FastAPIGateway:
+      Description: "API Gateway endpoint URL for fastapi-lambda-example"
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/"
+      FastapiExampleLambda:
+      Description: "FastapiExampleLambda ARN"
+      Value: !GetAtt FastapiExampleLambda.Arn
