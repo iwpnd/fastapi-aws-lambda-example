@@ -26,6 +26,6 @@ Outputs:
     FastAPIGateway:
       Description: "API Gateway endpoint URL for fastapi-lambda-example"
       Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/"
-      FastapiExampleLambda:
+    FastapiExampleLambda:
       Description: "FastapiExampleLambda ARN"
       Value: !GetAtt FastapiExampleLambda.Arn
