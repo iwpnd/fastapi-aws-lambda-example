@@ -27,7 +27,4 @@ def pong():
     return {"ping": "pong!"}
 
 
-if __name__ == "__main__":
-    handler = Mangum(app, enable_lifespan=False)
-else:
-    handler = Mangum(app)
+handler = Mangum(app, enable_lifespan=False)
