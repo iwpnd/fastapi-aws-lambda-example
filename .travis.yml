@@ -16,7 +16,7 @@ jobs:
       script:
         - sam validate
         - sam build --debug
-        - sam package --s3-bucket travis-deployment-bucket --output-template-file out.yml --region eu-west-1
+        - sam package --s3-bucket my-travis-deployment-bucket --output-template-file out.yml --region eu-west-1
         - sam deploy --template-file out.yml --stack-name example-stack-name --region eu-west-1 --no-fail-on-empty-changeset --capabilities CAPABILITY_IAM
       skip_cleanup: true
       if: branch = master

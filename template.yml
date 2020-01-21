@@ -6,6 +6,14 @@ Resources:
     FastapiExampleLambda:
         Type: AWS::Serverless::Function
         Properties:
+            Events:
+                ApiEvent:
+                    Properties:
+                        RestApiId:
+                            Ref: FastapiExampleGateway
+                        Path: /{proxy+}
+                        Method: ANY
+                    Type: Api
             FunctionName: fastapi-lambda-example
             CodeUri: ./
             Handler: example_app.main.handler
@@ -16,16 +24,9 @@ Resources:
             # other options, see ->
             # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy-globals.html#sam-specification-template-anatomy-globals-supported-resources-and-properties
             Role: !Sub arn:aws:iam::${AWS::AccountId}:role/fastapilambdarole
-            Events:
-                CatchAll:
-                    Type: Api
-                    Properties:
-                        Path: /{proxy+}
-                        Method: ANY
-Outputs:
-    FastAPIGateway:
-      Description: "API Gateway endpoint URL for fastapi-lambda-example"
-      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/"
-    FastapiExampleLambda:
-      Description: "FastapiExampleLambda ARN"
-      Value: !GetAtt FastapiExampleLambda.Arn
+
+    FastapiExampleGateway:
+        Type: AWS::Serverless::Api
+        Properties:
+            StageName: prod
+            OpenApiVersion: '3.0.0'
