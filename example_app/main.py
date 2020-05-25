@@ -1,12 +1,13 @@
 from fastapi import FastAPI
+from mangum import Mangum
+
 from example_app.api.api_v1.api import router as api_router
 from example_app.core.config import API_V1_STR, PROJECT_NAME
-from mangum import Mangum
 
 app = FastAPI(
     title=PROJECT_NAME,
     # if not custom domain
-    # openapi_prefix="/Prod"
+    # openapi_prefix="/prod"
 )
 
 
