@@ -1,5 +1,7 @@
 # Disclaimer
-This is old, I won't answer issues or emails regarding the project anymore. Not even sure if you can still do it this way.
+I won't answer issues or emails regarding the project anymore.
+
+The project is old and not maintained anymore. I'm not sure if it still works this way, but maybe it can still serve as a starting point for your exploration.
 
 # fastapi-aws-lambda-example
 
